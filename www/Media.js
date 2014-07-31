@@ -62,7 +62,10 @@ Media.MEDIA_STARTING = 1;
 Media.MEDIA_RUNNING = 2;
 Media.MEDIA_PAUSED = 3;
 Media.MEDIA_STOPPED = 4;
-Media.MEDIA_MSG = ["None", "Starting", "Running", "Paused", "Stopped"];
+Media.MEDIA_START_INTERRUPT = 5;
+Media.MEDIA_END_INTERRUPT = 6;
+
+Media.MEDIA_MSG = ["None", "Starting", "Running", "Paused", "Stopped", "Start Interrupt", "End Interrupt"];
 
 // "static" function to return existing objs.
 Media.get = function(id) {
@@ -171,6 +174,12 @@ Media.onStatus = function(id, msgType, value) {
                 media.statusCallback && media.statusCallback(value);
                 if(value == Media.MEDIA_STOPPED) {
                     media.successCallback && media.successCallback();
+                }
+                if(value == Media.MEDIA_START_INTERRUPT){
+                    alert("Start Interuption");
+                }
+                if(value == Media.MEDIA_END_INTERRUPT){
+                    alert("End Interuption");
                 }
                 break;
             case Media.MEDIA_DURATION :

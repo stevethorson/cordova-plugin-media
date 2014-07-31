@@ -36,7 +36,9 @@ enum CDVMediaStates {
     MEDIA_STARTING = 1,
     MEDIA_RUNNING = 2,
     MEDIA_PAUSED = 3,
-    MEDIA_STOPPED = 4
+    MEDIA_STOPPED = 4,
+    MEDIA_START_INTERRUPT = 5,
+    MEDIA_END_INTERRUPT = 6
 };
 typedef NSUInteger CDVMediaStates;
 
